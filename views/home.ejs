@@ -1,0 +1,22 @@
+<%- include("partials/header"); -%>
+<div class="blog-border">
+  <div class="titlepost">
+    <h1 class="title">Home</h1>
+    <p> <%= startingContent.replace(/  /g, '&nbsp;&nbsp;') %> </p>
+  </div>
+</div>
+
+<% posts.reverse() %>
+  <% posts.forEach(function(post) { %>
+    <div class="blog-border">
+      <div class="titlepost">
+        <h1 class="title"><%= post.title.replace(/  /g, '&nbsp;&nbsp;') %></h1>
+        <p>
+          <%= post.content.substring(0, 200).replace(/  /g, '&nbsp;&nbsp;') + " ..." %>
+          <a href="/posts/<%= post._id %>">Read More</a>
+        </p>
+      </div>
+    </div>
+  <% }) %>
+
+<%- include("partials/footer"); -%>

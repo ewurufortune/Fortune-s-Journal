@@ -1,0 +1,61 @@
+html {
+  
+  min-height: 100%;
+  position: relative;
+}
+.body{
+  background-color: #DFF6FF;
+  background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
+
+}
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1363DF !important;
+}
+
+.footer-padding {
+	padding-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-color: #EEEEEE;
+}
+
+.footer p {
+	margin-top: 25px;
+	font-size: 12px;
+  color: #fff;
+}
+.title{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #AAAAAA;
+}
+.title:hover{
+  color:#929AAB
+}
+.blog-border{
+  margin: 30px 0 30px;
+  border: 2px solid #DFDFDE;
+  border-radius: 1%;
+  box-shadow: 5px 10px #EEEEEE;
+}
+.titlepost{
+margin-left: 10px;
+}
