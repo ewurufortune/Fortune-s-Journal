@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://ewurufortune:pmX0GdJHQumI8jVb@resourcecluster.inplmwx.mongodb.net/personalBlogDB", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://fortune:1234@resourcecluster.inplmwx.mongodb.net/personalBlogDB", {useNewUrlParser: true});
 
 const postSchema = {
   title: String,
@@ -28,12 +28,18 @@ const Post = mongoose.model("Post", postSchema);
 
 app.get("/", function(req, res){
 
-  Post.find({}, function(err, posts){
+  Post.find({})
+  .then(posts => {
     res.render("home", {
       startingContent: homeStartingContent,
       posts: posts
-      });
+    });
+  })
+  .catch(err => {
+    console.error(err);
+    // Handle the error as needed
   });
+
 });
 
 app.get("/compose", function(req, res){
@@ -47,23 +53,34 @@ app.post("/compose", function(req, res){
   });
 
 
-  post.save(function(err){
-    if (!err){
-        res.redirect("/");
-    }
+  post.save()
+  .then(() => {
+    res.redirect("/");
+  })
+  .catch(err => {
+    console.error(err);
+    // Handle the error as needed
   });
+
 });
 
 app.get("/posts/:postId", function(req, res){
 
 const requestedPostId = req.params.postId;
 
-  Post.findOne({_id: requestedPostId}, function(err, post){
+Post.findOne({ _id: requestedPostId })
+  .then(post => {
+    console.log(post);
     res.render("post", {
       title: post.title,
       content: post.content
     });
+  })
+  .catch(err => {
+    console.error(err);
+    // Handle the error as needed
   });
+
 
 });
 

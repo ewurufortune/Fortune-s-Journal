@@ -10,9 +10,9 @@
   <% posts.forEach(function(post) { %>
     <div class="blog-border">
       <div class="titlepost">
-        <h1 class="title"><%= post.title.replace(/  /g, '&nbsp;&nbsp;') %></h1>
+        <h1 class="title"><%= post.title.replace(/&nbsp;/g, ' ')  %></h1>
         <p>
-          <%= post.content.substring(0, 200).replace(/  /g, '&nbsp;&nbsp;') + " ..." %>
+          <%= post.content.substring(0, 200).replace(/&nbsp;/g, ' ') + " ..." %>
           <a href="/posts/<%= post._id %>">Read More</a>
         </p>
       </div>

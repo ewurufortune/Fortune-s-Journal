@@ -1,10 +1,6 @@
-
 <%- include("partials/header"); -%>
 
-
-    <h1><%=title%></h1>
-    <p><%=content%></p>
-
-
+    <h1><%- title %></h1>
+    <div><%- content.replace(/\n/g, '<br>') %></div>
 
 <%- include("partials/footer"); -%>
